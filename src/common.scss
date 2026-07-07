@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@100..900&family=Life+Savers:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grandiflora+One&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@100..900&family=Life+Savers:wght@400;700;800&display=swap");
 // font
 .font-normal {
   font-size: 14px;
@@ -6,4 +6,32 @@
 
 .font-large {
   font-size: 20px;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.backColor_1 {
+  background-color: var(--section1);
+}
+
+.backColor_2 {
+  background-color: var(--section2);
+}
+
+.backColor_3 {
+  background-color: var(--section3);
+}
+
+.backColor_default {
+  background-color: var(--bg-default);
+}
+
+.button {
+  background: var(--button-color);
+}
+
+.title {
+  color: var(--text-color);
 }

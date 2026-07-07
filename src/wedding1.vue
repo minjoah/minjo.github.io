@@ -20,7 +20,7 @@
     <div class="contents">오디오</div>
     <div class="contents">
       메인 사진, 시간장소
-      <img src="@/image/iamge1.png" class="image" />
+      <img src="@/image/image1.png" class="image" />
     </div>
     <div class="contents">웰컴 문구</div>
     <div class="contents">신랑신부소개</div>

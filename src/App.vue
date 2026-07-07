@@ -12,6 +12,19 @@ import navBar from "@/navBar.vue";
   box-sizing: border-box;
 }
 
+:root {
+  --bg-color: #eadaa9; /* body */
+  --section1: #f4f3f3;
+  --section2: #f7f0d9;
+  --section3: #eae8e8;
+
+  --bg-default: rgb(253, 253, 253);
+
+  --button-color: #dac37f;
+  --accent-color: #b89b4b;
+  --text-color: #3c3c3c;
+}
+
 html,
 body,
 #app {
@@ -26,7 +39,7 @@ body,
 }
 
 body {
-  background-color: #d6d6d6;
+  background-color: var(--bg-color);
 }
 
 #wrap {

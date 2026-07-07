@@ -89,6 +89,7 @@ const afterEnter = (el) => {
   background: white;
   border: 0;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .arrow {

@@ -1,13 +1,16 @@
 <template>
   <div class="location">
-    <div class="address">
-      <div>W웨딩 K웨딩홀</div>
+    <Title title="LOCATION">
+      <div class="address">
+        <div>W웨딩 K웨딩홀</div>
 
-      <div class="address-line">
-        <span>{{ address }}</span>
-        <img src="@/image/icon/copy.svg" class="icon" @click="copy()" />
+        <div class="address-line">
+          <span>{{ address }}</span>
+          <img src="@/image/icon/copy.svg" class="icon" @click="copy()" />
+        </div>
       </div>
-    </div>
+    </Title>
+
     <div class="map-wrap">
       <div id="map" style="width: 100%; height: 250px"></div>
       <button class="map-btn" @click="moveToCurrent">초기화</button>
@@ -29,6 +32,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import Toast from "@/component/Toast.vue";
+import Title from "@/component/Title.vue";
 const map = ref(null);
 
 let weddingLocation = null;
@@ -101,10 +105,11 @@ const copy = () => {
 .location {
   position: relative; // 추가
   width: 100%;
-  margin: 0 auto;
+  margin-top: 50px;
+  // margin: 0 auto;
 
   overflow: hidden;
-  height: 400px;
+  height: 100%;
   transition: height 0.4s ease;
 
   line-height: 1.8;
@@ -132,7 +137,7 @@ const copy = () => {
 }
 
 .info {
-  background-color: rgb(234, 233, 231);
+  background-color: rgb(255, 255, 254);
   padding: 10px;
   display: grid;
   gap: 5px;

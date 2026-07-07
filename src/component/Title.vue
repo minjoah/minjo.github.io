@@ -20,6 +20,7 @@ const props = defineProps({
   .title {
     font-family: "Life Savers", sans-serif;
     font-size: 40px;
+    color: var(--text-color);
   }
 }
 </style>

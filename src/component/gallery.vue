@@ -149,7 +149,7 @@ watch([imageList, gridCols], async () => {
   checkHeight();
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   position: relative; // 추가
   width: 80%;
@@ -164,6 +164,7 @@ watch([imageList, gridCols], async () => {
 }
 
 .gallery {
+  margin: 100px 0px;
   position: relative;
 }
 

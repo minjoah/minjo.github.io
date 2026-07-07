@@ -1,31 +1,36 @@
 <template>
-  <div class="dDay">
-    <div>
-      <span class="num">{{ days }}</span>
-      <br />
-      <span class="text">DAYS</span>
+  <div class="container">
+    <div class="dDay">
+      <div>
+        <span class="num">{{ days }}</span>
+        <br />
+        <span class="text">DAYS</span>
+      </div>
+      <div>
+        <span class="num">{{ hours }}</span>
+        <br />
+        <span class="text">HOURS</span>
+      </div>
+      <div>
+        <span class="num">{{ minutes }}</span>
+        <br />
+        <span class="text">MINUTES</span>
+      </div>
+      <div>
+        <span class="num">{{ seconds }}</span>
+        <br />
+        <span class="text">SECONDS</span>
+      </div>
     </div>
-    <div>
-      <span class="num">{{ hours }}</span>
-      <br />
-      <span class="text">HOURS</span>
+    <div class="text">
+      <span>
+        <b>승현</b> <label class="point">♥</label> <b>민조</b>의 결혼식이
+        <label class="point"
+          ><b>{{ days }}일</b></label
+        >
+        남았습니다.
+      </span>
     </div>
-    <div>
-      <span class="num">{{ minutes }}</span>
-      <br />
-      <span class="text">MINUTES</span>
-    </div>
-    <div>
-      <span class="num">{{ seconds }}</span>
-      <br />
-      <span class="text">SECONDS</span>
-    </div>
-  </div>
-  <div class="text">
-    <span>
-      승현 <label class="point">♥</label> 민조의 결혼식이
-      <label class="point">{{ days }}일</label> 남았습니다.
-    </span>
   </div>
 </template>
 <script setup>
@@ -71,20 +76,27 @@ onBeforeUnmount(() => {
 });
 </script>
 <style lang="scss">
+.container {
+  padding-bottom: 120px;
+}
 .dDay {
   display: flex;
-  justify-self: center;
+  gap: 10px; // margin 대신 gap 사용
+  width: 100%;
+
   div {
-    // border: 1px solid black;
+    flex: 1;
+    min-width: 0;
     border-radius: 10px;
-    width: 80px;
-    // height: 90px;
-    padding: 13px 0px;
-    margin: 8px;
+    padding: 13px 0;
     box-shadow: 4px 4px 10px 1px rgb(187, 186, 186);
+    background-color: rgb(252, 253, 253);
+    text-align: center;
+
     .num {
       font-size: xx-large;
     }
+
     .text {
       font-size: small;
     }
@@ -93,7 +105,7 @@ onBeforeUnmount(() => {
 .text {
   margin-top: 20px;
   .point {
-    color: red;
+    color: var(--accent-color);
   }
 }
 </style>

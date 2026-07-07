@@ -1,5 +1,5 @@
 <template>
-  <div class="contents">
+  <div class="calendar">
     <div>
       <Title title="WEDDING DAY">
         <div class="title_sub">
@@ -11,7 +11,7 @@
 
       <Line />
     </div>
-    <table class="calendar">
+    <table class="calendar_table">
       <tr>
         <th class="holidays">일</th>
         <th>월</th>
@@ -90,17 +90,26 @@ onMounted(() => {
     color: #6c6c6c;
   }
 }
-.contents {
+.calendar {
   align-items: center;
+  margin-top: 100px;
 }
 
-.calendar {
+.calendar_table {
   width: 100%;
   margin: auto;
   text-align: center;
+  table-layout: fixed;
+  border-collapse: collapse;
   tr {
     height: 60px;
   }
+}
+
+.calendar_table th,
+.calendar_table td {
+  width: calc(100% / 7);
+  text-align: center;
 }
 .disabled {
   color: rgb(190, 190, 190);
@@ -122,7 +131,7 @@ onMounted(() => {
   color: red !important;
 }
 
-.sat {
-  color: rgb(66, 66, 66);
-}
+// .sat {
+//   color: rgb(66, 66, 66);
+// }
 </style>
