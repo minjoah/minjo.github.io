@@ -2,7 +2,8 @@
   <button @click="select = 1">1</button>
   <button @click="select = 2">2</button>
   <button @click="select = 3">3</button>
-  <section v-if="select === 1" class="concept1">
+  <button @click="select = 4">4</button>
+  <section v-if="select === 1" class="main_image concept1">
     <div class="name top">DOHUN</div>
 
     <div class="photo-wrap">
@@ -17,17 +18,17 @@
 
     <div class="name bottom">JIYEON</div>
   </section>
-  <section v-if="select === 2" class="concept2">
+  <section v-if="select === 2" class="main_image concept2">
     <div class="photo-wrap">
       <div class="photo">
         <img src="@/image/image1.png" class="image" />
       </div>
     </div>
     <br />
-    <div class="name bottom">our wedding day</div>
+    <div class="title bottom">our wedding day</div>
     <div class="name bottom">2026.10.31 Saturday 15:00</div>
   </section>
-  <section v-if="select === 3" class="concept3">
+  <section v-if="select === 3" class="main_image concept3">
     <div class="name">our wedding day</div>
     <hr />
     <div class="name">2026.10.31 Saturday 15:00</div>
@@ -45,6 +46,9 @@ import { ref } from "vue";
 const select = ref(1);
 </script>
 <style lang="scss" scoped>
+.main_image {
+  height: 900px;
+}
 .concept1 {
   padding: 60px 0 80px;
   background: #f8f8f8;
@@ -119,6 +123,12 @@ const select = ref(1);
   flex-direction: column;
   align-items: center;
 
+  .title {
+    margin: 50px 0px;
+    font-family: "Meddon", cursive;
+    font-style: normal;
+    font-size: 35px;
+  }
   .photo-wrap {
     display: flex;
     align-items: center;
@@ -132,7 +142,7 @@ const select = ref(1);
 
     overflow: hidden;
 
-    border-radius: 47% 47% 0% 0%;
+    border-radius: 49% 49% 0% 0%;
   }
 
   .photo img {

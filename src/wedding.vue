@@ -220,17 +220,19 @@ onMounted(() => {
 }
 
 .contents.show {
-  animation: fadein 3s;
+  animation: fade_up 1s;
 }
 .margin {
   padding: 0px 10%;
 }
-@keyframes fadein {
-  from {
+@keyframes fade_up {
+  0% {
     opacity: 0;
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
