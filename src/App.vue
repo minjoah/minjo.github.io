@@ -30,8 +30,8 @@ body,
 #app {
   width: 100%;
   min-height: 100%;
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:30px 0;
 
   overflow-x: hidden;
   display: flex;
@@ -48,7 +48,7 @@ body {
 
   margin: 0 auto;
   text-align: center;
-  background: #f5f5f5;
+  // background: #f5f5f5;
   min-height: 100vh;
 }
 </style>

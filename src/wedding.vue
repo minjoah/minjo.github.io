@@ -1,4 +1,5 @@
 <template>
+
   <div
     class="main-frame"
     :class="{
@@ -6,7 +7,10 @@
       'font-large': fontOpt === 'big',
     }"
   >
-    <div>
+    <div class="welcome-section">
+      <welcome/>
+    </div>
+    <!-- <div>
       <a href="https://minjoah.github.io/wedding" target="_blank"
         >사이트 가기
       </a>
@@ -14,13 +18,13 @@
       https://www.svgrepo.com/collections/line/35
       https://toourguest.com/preview/jeju
     </div>
-    <div class="contents">
+    <div>
       <button @click="fontOpt = 'big'">큰글씨</button>
       <button @click="fontOpt = 'normal'">보통글씨</button>
       <br />
       현재 적용 :: {{ fontOpt === "big" ? "큰글씨" : "보통글씨" }}
     </div>
-    <div class="contents">
+    <div >
       테마
       <button @click="changeTheme('yellow')">Yellow</button>
 
@@ -32,12 +36,11 @@
 
       <button @click="changeTheme('brown')">Brown</button>
     </div>
-    <div class="contents">오디오</div>
+    <div >오디오</div> -->
     <div class="contents">
-      메인 사진, 시간장소
       <mainImage />
     </div>
-    <div class="contents"><invite /></div>
+    <div class="contents backColor_1"><invite /></div>
     <div class="contents">
       <img src="@/image/image2.png" class="image" />
     </div>
@@ -61,7 +64,6 @@
       <directions />
     </div>
     <div class="contents">버스대절 안내</div>
-    <div class="contents">방명록 ( 필요없을듯 )</div>
     <div class="contents margin backColor_default">
       <money />
     </div>
@@ -86,6 +88,7 @@ import Title from "@/component/Title.vue";
 import invite from "@/component/invite.vue";
 import impactDDay from "@/component/impactDDay.vue";
 import mainImage from "@/component/mainImage.vue";
+import welcome from "@/component/welcome.vue";
 
 const themes = {
   yellow: {
@@ -155,7 +158,9 @@ const changeTheme = (name) => {
 };
 
 const fontOpt = ref("normal");
+const isLoading = ref(false)
 onMounted(() => {
+  changeTheme("brown")
   const callback = ([entry], observer) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
@@ -166,6 +171,10 @@ onMounted(() => {
   boxes.forEach((box) => {
     observer.observe(box);
   });
+
+  setTimeout(()=>{
+    isLoading.value = true
+  },5000)
 });
 </script>
 <style lang="scss" scoped>
@@ -176,10 +185,29 @@ onMounted(() => {
 
   margin: 0 auto;
 
-  background: #fff;
+  // background: #fff;
 
   display: flex;
   flex-direction: column;
+
+    position: relative;
+    border-radius: 50px;
+    // border: 1px solid red;
+}
+
+.welcome-section {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 9999;
+
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .image {
@@ -207,6 +235,11 @@ onMounted(() => {
   .image {
     width: 100%;
   }
+}
+
+.contents:last-child,.contents:first-child{
+  padding-bottom:200px;
+  border-radius:0 0 25px 25px;
 }
 
 .backColor_1 {
