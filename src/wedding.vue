@@ -49,9 +49,6 @@
     </div>
     <div class="contents margin backColor_1">
       <calendar />
-    </div>
-    <div class="contents backColor_1 margin">
-      <!-- 디데이 -->
       <dDay />
     </div>
     <div class="contents backColor_2">
@@ -167,7 +164,9 @@ onMounted(() => {
     }
   };
   const observer = new IntersectionObserver(callback, null);
-  const boxes = document.querySelectorAll(".contents");
+  let boxes = document.querySelectorAll(".contents");
+  boxes = Array.from(boxes).slice(0, -1);
+
   boxes.forEach((box) => {
     observer.observe(box);
   });
@@ -193,6 +192,7 @@ onMounted(() => {
     position: relative;
     border-radius: 50px;
     // border: 1px solid red;
+     overflow-x: clip;
 }
 
 .welcome-section {

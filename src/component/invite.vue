@@ -410,12 +410,12 @@ const isSvgView = ref(false);
 const randSvg = ref(Math.floor(Math.random() * 5) + 1);
 onMounted(() => {
   const callback = ([entry], observer) => {
-    console.log(entry.isIntersecting);
+    // console.log(entry.isIntersecting);
     isSvgView.value = entry.isIntersecting;
   };
   const observer = new IntersectionObserver(callback, null);
   const boxes = document.querySelector(".inviteSvg");
-  console.log(boxes);
+  // console.log(boxes);
   observer.observe(boxes);
 });
 </script>

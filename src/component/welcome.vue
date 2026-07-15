@@ -53,7 +53,7 @@ const startTyping = async () => {
   showCursor.value = false
 
   // 화면 유지
-  await sleep(800)
+  await sleep(500)
 
   showWelcome.value = false
 }
@@ -75,7 +75,7 @@ onMounted(() => {
   align-items: center;
 
   background: rgba(0, 0, 0, 0.7);
-
+    border-radius: 25px 25px 0 0 ;
   z-index: 100;
 }
 
@@ -90,7 +90,7 @@ onMounted(() => {
   font-size: 2em;
   font-weight: 300;
 
-  color: var(--accent-color);
+  color: var(--section1);
 
   letter-spacing: 2px;
 }
