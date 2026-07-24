@@ -15,7 +15,7 @@
   </Transition>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 
 const showWelcome = ref(true)
 const showCursor = ref(true)
@@ -60,6 +60,7 @@ const startTyping = async () => {
 
 onMounted(async() => {
   await document.fonts.ready;
+  await nextTick()
   startTyping()
 })
 </script>
