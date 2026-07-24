@@ -38,9 +38,7 @@ onMounted(() => {
         requestAnimationFrame(() => {
           isShow.value = true;
         });
-      } else {
-        isShow.value = false;
-      }
+      } 
     },
     {
       threshold: 0.3,

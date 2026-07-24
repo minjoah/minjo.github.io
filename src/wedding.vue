@@ -190,7 +190,7 @@ onMounted(() => {
   flex-direction: column;
 
     position: relative;
-    border-radius: 50px;
+    // border-radius: 50px;
     // border: 1px solid red;
      overflow-x: hidden;
 }
