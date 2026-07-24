@@ -33,6 +33,7 @@
           >
             {{ day.val }}
           </span>
+          <div v-if="day.isActive" class="heart">❤</div>
         </td>
       </tr>
     </table>
@@ -110,7 +111,35 @@ onMounted(() => {
 .calendar_table td {
   width: calc(100% / 7);
   text-align: center;
+  position: relative;
+  span {
+    position: relative;
+    z-index: 2;
+  }
 }
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 38px;
+
+  color: #050505;
+  // opacity: 0.25;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+td > span,
+td > div:not(.heart) {
+  position: relative;
+  z-index: 1;
+}
+
 .disabled {
   color: rgb(190, 190, 190);
 }
@@ -122,7 +151,7 @@ onMounted(() => {
   width: 25px; /* 원의 크기 */
   height: 25px; /* width와 같게 설정 */
   border-radius: 50%; /* 원형으로 만들기 */
-  background-color: #070707; /* 배경색 */
+  // background-color: #070707; /* 배경색 */
   color: white; /* 숫자 색상 */
   font-weight: bold;
 }
