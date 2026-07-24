@@ -425,6 +425,11 @@ onMounted(() => {
 .invite {
   margin: 100px 0px;
 }
+
+.inviteSvg{
+  width:100%;
+  height:70px;
+}
 .text {
   display: flex;
   flex-direction: column;
