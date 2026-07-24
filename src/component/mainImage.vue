@@ -212,7 +212,7 @@ onBeforeUnmount(() => {
 </script>
 <style lang="scss" scoped>
 .main_image {
-  height: 100vh; 
+  height: 100dvh; 
 }
 .concept1 {
   padding: 60px 0 80px;
@@ -547,8 +547,8 @@ onBeforeUnmount(() => {
   }
 
   .photo {
-    width: 100vh;
-    height: 100vh;
+    width: 100dvh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
 
@@ -557,7 +557,7 @@ onBeforeUnmount(() => {
 
   .photo .image {
     // width: 100%;
-    height: 100vh;
+    height: 100dvh;
 
     object-fit: contain;
   }

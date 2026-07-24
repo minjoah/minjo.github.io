@@ -60,7 +60,7 @@
     <div class="contents backColor_3 margin">
       <directions />
     </div>
-    <div class="contents">버스대절 안내</div>
+    <!-- <div class="contents">버스대절 안내</div> -->
     <div class="contents margin backColor_default">
       <money />
     </div>
@@ -192,7 +192,7 @@ onMounted(() => {
     position: relative;
     border-radius: 50px;
     // border: 1px solid red;
-     overflow-x: clip;
+     overflow-x: hidden;
 }
 
 .welcome-section {
@@ -202,7 +202,7 @@ onMounted(() => {
   left: 0;
 
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 
   z-index: 9999;
 
