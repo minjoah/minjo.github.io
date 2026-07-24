@@ -416,7 +416,7 @@ onMounted(() => {
   const observer = new IntersectionObserver(callback, {
     threshold: 1
   });
-  const boxes = document.querySelector(".inviteSvg");
+  const boxes = document.querySelector(".invite");
   // console.log(boxes);
   observer.observe(boxes);
 });
