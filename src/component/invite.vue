@@ -405,16 +405,20 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 const isSvgView = ref(false);
 const randSvg = ref(Math.floor(Math.random() * 5) + 1);
 onMounted(() => {
   const callback = ([entry], observer) => {
-    // console.log(entry.isIntersecting);
-    isSvgView.value = entry.isIntersecting;
+    if(entry.isIntersecting){
+      isSvgView.value = true
+    }
+    if(entry.intersectionRatio ===0){
+      isSvgView.value = false
+    }
   };
   const observer = new IntersectionObserver(callback, {
-    threshold: 0.5
+    threshold: [0, 0.5, 1]
   });
   const boxes = document.querySelector(".invite");
   // console.log(boxes);
