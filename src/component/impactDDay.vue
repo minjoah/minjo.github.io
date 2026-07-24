@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .impact {
   width: 100%;
-  height: 100dvh;
+  height: var(--vh);
 
   display: flex;
   justify-content: center;

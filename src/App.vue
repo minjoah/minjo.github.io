@@ -5,7 +5,17 @@
   </div>
 </template>
 <script setup>
-import navBar from "@/navBar.vue";
+import { onMounted } from 'vue'
+
+onMounted(()=>{
+  setVH()
+})
+const setVH = () => {
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight}px`
+  );
+};
 </script>
 <style lang="scss">
 * {
@@ -54,6 +64,6 @@ body {
   margin: 0 auto;
   text-align: center;
   // background: #f5f5f5;
-  min-height: 100dvh;
+  min-height: var(--vh);
 }
 </style>

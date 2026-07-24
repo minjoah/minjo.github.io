@@ -155,8 +155,8 @@ const changeTheme = (name) => {
 };
 
 const fontOpt = ref("normal");
-const isLoading = ref(false)
 onMounted(() => {
+
   changeTheme("yellow")
   const callback = ([entry], observer) => {
     if (entry.isIntersecting) {
@@ -171,10 +171,9 @@ onMounted(() => {
     observer.observe(box);
   });
 
-  setTimeout(()=>{
-    isLoading.value = true
-  },5000)
 });
+
+
 </script>
 <style lang="scss" scoped>
 @use "@/common.scss";
@@ -202,7 +201,7 @@ onMounted(() => {
   left: 0;
 
   width: 100%;
-  height: 100dvh;
+  height: var(--vh);
 
   z-index: 9999;
 

@@ -74,7 +74,7 @@ const close = () => {
 .full {
   width: calc(100vw - 32px);
   max-width: 480px;
-  height: calc(100dvh - 32px);
+  height: calc(var(--vh) - 32px);
 
   display: flex;
   flex-direction: column;

@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
 </script>
 <style lang="scss" scoped>
 .main_image {
-  height: 100dvh; 
+  height: var(--vh); 
 }
 
 .concept5 {
@@ -149,14 +149,14 @@ onBeforeUnmount(() => {
 
   .photo {
     width: 100%;
-    height: 100dvh;
+    height: var(--vh);
     position: relative;
     overflow: hidden;
   }
 
   .photo .image {
     width: 100%;
-    height: 100dvh;
+    height: var(--vh);
 
     object-fit: cover;
   }
