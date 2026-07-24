@@ -57,40 +57,13 @@
 import { ref, watch } from "vue";
 import Toast from "@/component/Toast.vue";
 const shareMessage = () => {
-  Kakao.Share.sendDefault({
-    objectType: "feed",
-    content: {
-      title: "승현민조결혼식",
-      // description: "#케익 #딸기 #삼평동 #카페 #분위기 #소개팅",
-      imageUrl:
-        "http://k.kakaocdn.net/dn/bLPLfX/dJMcacayNt1/iWQpxLOqbqcyg2hxzKCEE1/kakaolink40_original.png",
-      link: {
-        mobileWebUrl: "https://minjoah.github.io/wedding",
-        webUrl: "https://minjoah.github.io/wedding",
-      },
-    },
-    // social: {
-    //   likeCount: 286,
-    //   commentCount: 45,
-    //   sharedCount: 845,
-    // },
-    buttons: [
-      {
-        title: "웹으로 보기",
-        link: {
-          mobileWebUrl: "https://minjoah.github.io/wedding",
-          webUrl: "https://minjoah.github.io/wedding",
-        },
-      },
-      {
-        title: "앱으로 보기",
-        link: {
-          mobileWebUrl: "https://minjoah.github.io/wedding",
-          webUrl: "https://minjoah.github.io/wedding",
-        },
-      },
-    ],
-  });
+ Kakao.Share.sendCustom({
+  templateId: 135614,
+  // templateArgs: {
+  //   title: '제목 영역입니다.',
+  //   description: '설명 영역입니다.',
+  // },
+});
 };
 
 const toastMessage = ref("");
