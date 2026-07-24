@@ -75,7 +75,7 @@ onMounted(() => {
   align-items: center;
 
   background: rgba(0, 0, 0, 0.7);
-    border-radius: 25px 25px 0 0 ;
+    // border-radius: 25px 25px 0 0 ;
   z-index: 100;
 }
 

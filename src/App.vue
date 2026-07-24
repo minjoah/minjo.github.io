@@ -31,11 +31,15 @@ body,
   width: 100%;
   min-height: 100%;
   margin:0;
-  padding:30px 0;
+  padding:0;
 
   overflow-x: hidden;
   display: flex;
   justify-content: center; /* 가로 가운데 정렬 */
+
+  @media (min-width: 769px) {
+   padding:30px 0 ;
+  }
 }
 
 body {

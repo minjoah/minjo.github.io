@@ -55,18 +55,51 @@
         />  
       <!-- JavaScript로 벚꽃잎이 채워집니다 -->
       <div class="photo">
-        <img src="@/image/image1.png" class="image" />
+        <img src="@/image/image4.jpg" class="image" />
       </div>
     </div>
   </div>
-
-
-    <br/><br/>
+    <br/>
     <div class="name">신랑 윤승현 ♥ 신부 김민조</div>
     <br/><br/>
     <div class="name">2026.10.31 Saturday 15:00</div>
     <div class="name">w웨딩 K웨딩홀</div>
+    <br/>
+    <br/><br/>
     </div>
+   
+  </section>
+  <section v-if="select === 5" class="main_image concept5">
+    <div class="photo-wrap">
+      <div class="sakura-container">
+        <div
+          v-for="sakura in sakuras"
+          :key="sakura.id"
+          class="sakura"
+          :style="sakura.style"
+        />  
+        <!-- JavaScript로 벚꽃잎이 채워집니다 -->
+        <div class="photo">
+          <div  class="top-text">
+            we are getting<br/> Married!
+          </div>
+          <img src="@/image/image4.jpg" class="image" />
+          <div class="bottom-gradient"></div>
+          <div  class="bottom-text">
+           October 31 &nbsp;&nbsp; | &nbsp;&nbsp;  SATURDAY &nbsp;&nbsp;  | &nbsp;&nbsp;  2026<br/>
+           at 03:00 PM
+          </div>
+
+        </div>
+      </div>
+      <!-- <br/>
+      <div class="name">신랑 윤승현 ♥ 신부 김민조</div>
+      <br/><br/>
+      <div class="name">2026.10.31 Saturday 15:00</div>
+      <div class="name">w웨딩 K웨딩홀</div>
+      <br/>
+      <br/><br/> -->
+  </div>
    
   </section>
 </template>
@@ -78,7 +111,7 @@ import {
   onMounted
 } from "vue";
 
-const select = ref(4);
+const select = ref(5);
 const sakuras = ref([]);
 
 let intervalSakura = null;
@@ -162,7 +195,7 @@ const stopSakura = () => {
 };
 
 watch(select, value => {
-  if (value === 4) {
+  if (value === 5) {
     startSakura();
   } else {
     stopSakura();
@@ -191,7 +224,7 @@ onBeforeUnmount(() => {
 
   .name {
     font-size: 68px;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Gowun Dodum", serif;
     font-weight: 300;
     letter-spacing: 4px;
     color: #555;
@@ -324,13 +357,16 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 25px 25px 0 0;
-
+  // border-radius: 25px 25px 0 0;
+  @media (min-width: 769px) {
+      border-radius:25px 25px 0 0;
+    }
   .concept4-body{
     width:90%;
     height:90vh;
     background-color: #f8f8f8;
     border-radius: 25px;
+   
   }
   .photo-wrap {
     display: flex;
@@ -356,14 +392,14 @@ onBeforeUnmount(() => {
   }
 
   .title {
-    margin: 50px 0px;
+    margin: 30px 0px;
     font-family: "Meddon", cursive;
     font-style: normal;
-    font-size: 35px;
+    font-size: 25px;
   }
 
   .name {
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.5;
   }
 
@@ -481,7 +517,208 @@ onBeforeUnmount(() => {
       opacity: 0;
     }
   }
+
+  .overlay {
+    position: absolute;
+    top: -30px;
+    left: -100px;
+    width: 500px !important;
+    height:500px !important;
+  }
+
 } 
 
+.concept5 {
+  background-color: rgba(255, 255, 255, 0.5); 
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // border-radius: 25px 25px 0 0;
+  @media (min-width: 769px) {
+      border-radius:25px 25px 0 0;
+    }
+  .photo-wrap {
+    display: flex;
+ 
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .photo {
+    width: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 5%;
+  }
+
+  .photo .image {
+    // width: 100%;
+    height: 100vh;
+
+    object-fit: contain;
+  }
+
+  
+  .bottom-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; /* 하단에서부터 차지하는 높이 비율 */
+    background: linear-gradient(to top, rgba(255, 254, 254, 0.7), transparent);
+  }
+
+  .top-text{
+    position: absolute;
+    top: 2%;
+    width:100%;
+    height: 20%;
+    font-family: "Francisco";
+    font-size:72px;
+    color:#eeee6f;
+    line-height: 1.1;
+    text-shadow: -2px 0px rgb(37, 37, 37), 0px 1px rgb(14, 14, 14), 1px 0px rgb(10, 10, 10), 0px -1px rgb(3, 3, 3);
+    margin:10px
+  }
+
+  .bottom-text{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height: 18%;
+    font-family: "Edu VIC WA NT Hand";
+    font-size:15px;
+  }
+
+  .title {
+    margin: 30px 0px;
+    font-family: "Meddon", cursive;
+    font-style: normal;
+    font-size: 25px;
+  }
+
+  .name {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+
+  .sakura-container {
+    position: relative;
+
+    width: 90%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+
+    pointer-events: none;
+  }
+
+  .sakura {
+    position: absolute;
+
+    // background: linear-gradient(
+    //   135deg,
+    //   #ffb7c5,
+    //   #fff2f5
+    // );
+
+    background: linear-gradient(
+      135deg,
+      #ffffff,
+      #fff2f5
+    );
+    
+    border-radius:
+      80% 20% 70% 30% /
+      70% 30% 80% 20%;
+
+    opacity: 0;
+
+    z-index: 5;
+    pointer-events: none;
+
+    animation-name: sakura-wind;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    will-change: transform;
+  }
+
+ @keyframes sakura-wind {
+    0% {
+      transform:
+        translate(0, 0)
+        rotate(0deg)
+        rotateY(0deg);
+
+      opacity: 0;
+    }
+
+    8% {
+      opacity: 0.8;
+    }
+
+    20% {
+      transform:
+        translate(
+          calc(var(--move-x) * -0.2 + 8px),
+          calc(var(--move-y) * 0.15)
+        )
+        rotate(70deg)
+        rotateY(60deg);
+    }
+
+    40% {
+      transform:
+        translate(
+          calc(var(--move-x) * -0.4 - 12px),
+          calc(var(--move-y) * 0.35)
+        )
+        rotate(150deg)
+        rotateY(130deg);
+    }
+
+    60% {
+      transform:
+        translate(
+          calc(var(--move-x) * -0.6 + 15px),
+          calc(var(--move-y) * 0.55)
+        )
+        rotate(230deg)
+        rotateY(220deg);
+    }
+
+    80% {
+      transform:
+        translate(
+          calc(var(--move-x) * -0.8 - 8px),
+          calc(var(--move-y) * 0.8)
+        )
+        rotate(320deg)
+        rotateY(320deg);
+
+      opacity: 0.7;
+    }
+
+    100% {
+      transform:
+        translate(
+          calc(var(--move-x) * -1),
+          var(--move-y)
+        )
+        rotate(var(--rotate))
+        rotateY(480deg);
+
+      opacity: 0;
+    }
+  }
+} 
 </style>

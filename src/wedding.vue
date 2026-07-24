@@ -157,7 +157,7 @@ const changeTheme = (name) => {
 const fontOpt = ref("normal");
 const isLoading = ref(false)
 onMounted(() => {
-  changeTheme("brown")
+  changeTheme("yellow")
   const callback = ([entry], observer) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
@@ -239,7 +239,7 @@ onMounted(() => {
 
 .contents:last-child,.contents:first-child{
   padding-bottom:200px;
-  border-radius:0 0 25px 25px;
+  // border-radius:0 0 25px 25px;
 }
 
 .backColor_1 {
