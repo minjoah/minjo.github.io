@@ -2,7 +2,7 @@
   <div class="invite">
     <div class="inviteSvg">
       <svg
-        v-if="isSvgView && randSvg === 1"
+        v-show="isSvgView && randSvg === 1"
         class="ribbon"
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
         />
       </svg>
       <svg
-        v-if="isSvgView && randSvg === 2"
+        v-show="isSvgView && randSvg === 2"
         class="ribbon"
         viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
         </g>
       </svg>
       <svg
-        v-if="isSvgView && randSvg === 3"
+        v-show="isSvgView && randSvg === 3"
         class="ribbon"
         viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +179,7 @@
         />
       </svg>
       <svg
-        v-if="isSvgView && randSvg === 4"
+        v-show="isSvgView && randSvg === 4"
         class="ribbon"
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
@@ -343,7 +343,7 @@
         />
       </svg>
       <svg
-        v-if="isSvgView && randSvg === 5"
+        v-show="isSvgView && randSvg === 5"
         class="ribbon"
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
