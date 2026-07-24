@@ -413,7 +413,9 @@ onMounted(() => {
     // console.log(entry.isIntersecting);
     isSvgView.value = entry.isIntersecting;
   };
-  const observer = new IntersectionObserver(callback, null);
+  const observer = new IntersectionObserver(callback, {
+    threshold: 1
+  });
   const boxes = document.querySelector(".inviteSvg");
   // console.log(boxes);
   observer.observe(boxes);
