@@ -10,6 +10,7 @@ import navBar from "@/navBar.vue";
 <style lang="scss">
 * {
   box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 :root {
