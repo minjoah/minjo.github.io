@@ -414,7 +414,7 @@ onMounted(() => {
     isSvgView.value = entry.isIntersecting;
   };
   const observer = new IntersectionObserver(callback, {
-    threshold: 1
+    threshold: 0.5
   });
   const boxes = document.querySelector(".invite");
   // console.log(boxes);

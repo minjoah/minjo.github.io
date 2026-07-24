@@ -60,8 +60,9 @@ const startTyping = async () => {
 
 onMounted(async() => {
   await document.fonts.ready;
-  await nextTick()
-  startTyping()
+  setTimeout(()=>{
+    startTyping()
+  },200)
 })
 </script>
 <style scoped lang="scss">
