@@ -59,7 +59,7 @@ const startTyping = async () => {
 }
 
 onMounted(async() => {
-  await document.fonts.ready;
+  await document.fonts.load('32px InkLiquid');
   setTimeout(()=>{
     startTyping()
   },200)
