@@ -58,7 +58,8 @@ const startTyping = async () => {
   showWelcome.value = false
 }
 
-onMounted(() => {
+onMounted(async() => {
+  await document.fonts.ready;
   startTyping()
 })
 </script>
