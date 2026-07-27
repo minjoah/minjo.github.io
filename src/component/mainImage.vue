@@ -173,16 +173,18 @@ onBeforeUnmount(() => {
 
   .top-text{
     position: absolute;
-    top: 2%;
+    top: 3%;
     width:100%;
     height: 20%;
-    font-family: "Francisco";
+    font-family: "InkLiquid";
     font-size:72px;
-    color:#eeee6f;
+    color:#fffff9;
     line-height: 1.1;
-    text-shadow: -2px 0px rgb(37, 37, 37), 0px 1px rgb(14, 14, 14), 1px 0px rgb(10, 10, 10), 0px -1px rgb(3, 3, 3);
-    margin:10px
+    // text-shadow: -2px 0px rgb(37, 37, 37), 0px 1px rgb(14, 14, 14), 1px 0px rgb(10, 10, 10), 0px -1px rgb(3, 3, 3);
+    text-shadow: -1px 0px rgb(239, 239, 114), 0px 1px rgb(234, 234, 217), 1px 0px rgb(118, 118, 118), 0px -1px rgb(236, 217, 217);
+    // margin:10px
   }
+  
 
   .bottom-text{
     position: absolute;

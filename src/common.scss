@@ -10,6 +10,11 @@
     font-family: 'Francisco';
     src: url('@/image/font/FranciscoDemo.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Script';
+    src: url('@/image/font/Script.ttf') format('truetype');
+}
 // font
 .font-normal {
   font-size: 14px;

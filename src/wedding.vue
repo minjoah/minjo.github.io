@@ -1,18 +1,19 @@
 <template>
-  <div class="main-frame">
+  <!-- <div class="main-frame">
     <commingSoon/>
      <div class="contents">
       <mainImage />
     </div>
-  </div>
+  </div> -->
   <div
-    v-if="false"
+    v-if="true"
     class="main-frame"
     :class="{
       'font-normal': fontOpt === 'normal',
       'font-large': fontOpt === 'big',
     }"
   >
+    <bgm/>
     <div class="welcome-section">
       <welcome/>
     </div>
@@ -76,6 +77,12 @@
     <div class="contents margin backColor_default">
       <share />
     </div>
+
+    <div class="contents margin backColor_default footer">
+      Copyright 2026. minjo All rights reserved.
+      <br/>
+      모든 버그는 눈 감아 주세요  :) Thank you! 
+    </div>
   </div>
 </template>
 <script setup>
@@ -92,6 +99,7 @@ import invite from "@/component/invite.vue";
 import impactDDay from "@/component/impactDDay.vue";
 import mainImage from "@/component/mainImage.vue";
 import welcome from "@/component/welcome.vue";
+import bgm from "@/component/bgm.vue";
 import commingSoon from "@/component/commingSoon.vue";
 
 
@@ -271,5 +279,11 @@ onMounted(() => {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.footer{
+  padding-top:100px;
+  padding-bottom: 30px;
+  font-size:8px;
 }
 </style>

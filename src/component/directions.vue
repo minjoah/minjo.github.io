@@ -42,7 +42,38 @@
     <div class="directions-body">
       건물 주차장 혹은 외부 주차장 이용 <br />
       교대, 삼성, 국제, 델리 민영주차장 : 도보2분 <br />
-      부산 교육대학교 주차장 : 도보 5분
+      부산 교육대학교 주차장 : 도보 5분<br/><br/>
+      주차요원의 안내를 따라주세요.<br/><br/>
+
+      건물 주차장과 외부 주차장 주차권 받는 장소가 다르니 유의해주세요.
+      <br/>
+      <table class="parking" align="center" width="100%">
+        <th colspan="3">건물 주차장</th>
+        <tr>
+            <td><b>수령처</b></td>
+            <td>4층 엘레베이터</td>
+            <td>뷔페 카운터</td>
+        </tr>
+        <tr>
+            <td><b>제공시간</b></td>
+            <td>1시간</td>
+            <td>2시간</td>
+        </tr>
+       </table>
+        <table class="parking" align="center" width="100%">
+        <th colspan="2">
+          외부 주차장<br/>
+          <span style="font-weight: normal;">민영 교대, 삼성, 국제, 델리, 부산교육대</span></th>
+        <tr>
+            <td><b>수령처</b></td>
+            <td>1층 로비 뒤쪽 후문 입구</td>
+        </tr>
+        <tr>
+            <td><b>제공시간</b></td>
+            <td>2시간</td>
+        </tr>
+       </table>
+
     </div>
   </div>
 </template>
@@ -70,5 +101,24 @@ import Line from "@/component/Line.vue";
 .icon {
   width: 18px;
   height: 18px;
+}
+
+.parking{
+  width:90%;
+  // display: flex;
+  // border:solid 1px black;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+
+  th{
+    white-space: pre-line;
+    background-color: var(--button-color);
+  }
+  th, td{
+    text-align: center;
+     border: 1px solid #e8e6e6;
+     font-size: 12px;
+    
+  }
 }
 </style>

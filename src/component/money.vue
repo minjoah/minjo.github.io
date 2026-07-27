@@ -31,17 +31,17 @@
           </div>
 
           <div class="account-card__actions">
-            <button class="icon-btn" @click="copy(account.accountNo)">
-              <img src="@/image/icon/copy.svg" class="icon" />
-              복사
-            </button>
-            <button class="icon-btn" v-if="account.isKakaoPay">
+             <button class="icon-btn" v-if="account.isKakaoPay">
               <img
                 src="@/image/icon/kakaopay.png"
                 class="icon_kakao"
                 @click="() => goLink(account.kakaoPayLink)"
               />
             </button>
+            <button class="icon-btn" @click="copy(account.accountNo)">
+              <img src="@/image/icon/copy.svg" class="icon" />
+            </button>
+           
           </div>
         </div>
       </div>
@@ -69,10 +69,6 @@
           </div>
 
           <div class="account-card__actions">
-            <button class="icon-btn" @click="copy(account.accountNo)">
-              <img src="@/image/icon/copy.svg" class="icon" />
-              복사
-            </button>
             <button class="icon-btn" v-if="account.isKakaoPay">
               <img
                 src="@/image/icon/kakaopay.png"
@@ -80,6 +76,10 @@
                 @click="() => goLink(account.kakaoPayLink)"
               />
             </button>
+            <button class="icon-btn" @click="copy(account.accountNo)">
+              <img src="@/image/icon/copy.svg" class="icon" />
+            </button>
+          
           </div>
         </div>
       </div>
@@ -98,7 +98,6 @@ const accounts = [
     name: "이민호",
     bank: "토크은행",
     accountNo: "123-456-789012",
-    isKakaoPay: true,
     kakaoPayLink: "https://qr.kakaopay.com/Ej7lXpjEN",
   },
   {
@@ -118,22 +117,23 @@ const accounts = [
 const accounts1 = [
   {
     role: "신부",
-    name: "이민호",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
+    name: "김민조",
+    bank: "카카오뱅크",
+    accountNo: "3333-02-4595352",
     isKakaoPay: true,
+    kakaoPayLink: "https://qr.kakaopay.com/Ej7lXpjEN",
   },
   {
     role: "신부 아버지",
-    name: "이정빈",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
+    name: "김영일",
+    bank: "국민은행",
+    accountNo: "1142-10215525",
   },
   {
     role: "신부 어머니",
-    name: "이정빈",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
+    name: "이미선",
+    bank: "기업은행",
+    accountNo: "010-9808-9236",
   },
 ];
 
@@ -180,7 +180,7 @@ const copy = (account) => {
   margin: 0;
 
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
 
   background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -204,7 +204,7 @@ const copy = (account) => {
   background: #f5f5f5;
   border-radius: 10px;
 
-  padding: 14px 16px;
+  padding: 15px 10px;
 
   display: flex;
   align-items: center;
@@ -230,7 +230,7 @@ const copy = (account) => {
 .account-card__actions {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .icon-btn {
@@ -243,14 +243,14 @@ const copy = (account) => {
   cursor: pointer;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
   }
 }
 
 .icon_kakao {
-  width: 100% !important;
-  height: 24px !important;
+  width: 45px !important;
+  height: 20px !important;
 }
 
 .accordion {
