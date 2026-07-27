@@ -1,12 +1,12 @@
 <template>
-  <!-- <div class="main-frame">
+  <div class="main-frame">
     <commingSoon/>
      <div class="contents">
       <mainImage />
     </div>
-  </div> -->
+  </div>
   <div
-    v-if="true"
+    v-if="false"
     class="main-frame"
     :class="{
       'font-normal': fontOpt === 'normal',
