@@ -38,6 +38,7 @@ const toggleBgm = async () => {
 
 onMounted(()=>{
     isShow.value = true
+    audioRef.value.play()
     setTimeout(()=>{
         isShow.value = false
     },8000)
