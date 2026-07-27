@@ -1,6 +1,12 @@
 <template>
-
+  <div class="main-frame">
+    <commingSoon/>
+     <div class="contents">
+      <mainImage />
+    </div>
+  </div>
   <div
+    v-if="false"
     class="main-frame"
     :class="{
       'font-normal': fontOpt === 'normal',
@@ -86,6 +92,8 @@ import invite from "@/component/invite.vue";
 import impactDDay from "@/component/impactDDay.vue";
 import mainImage from "@/component/mainImage.vue";
 import welcome from "@/component/welcome.vue";
+import commingSoon from "@/component/commingSoon.vue";
+
 
 const themes = {
   yellow: {
@@ -180,18 +188,14 @@ onMounted(() => {
 
 .main-frame {
   width: 100%;
-
   margin: 0 auto;
-
   // background: #fff;
-
   display: flex;
   flex-direction: column;
-
-    position: relative;
-    // border-radius: 50px;
-    // border: 1px solid red;
-     overflow-x: hidden;
+  position: relative;
+  // border-radius: 50px;
+  // border: 1px solid red;
+    overflow-x: hidden;
 }
 
 .welcome-section {
@@ -237,8 +241,9 @@ onMounted(() => {
 }
 
 .contents:last-child,.contents:first-child{
-  padding-bottom:200px;
-  // border-radius:0 0 25px 25px;
+  //TODO: 해제
+  // padding-bottom:200px;
+
 }
 
 .backColor_1 {
