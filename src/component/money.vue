@@ -95,22 +95,21 @@ import Toast from "@/component/Toast.vue";
 const accounts = [
   {
     role: "신랑",
-    name: "이민호",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
-    kakaoPayLink: "https://qr.kakaopay.com/Ej7lXpjEN",
+    name: "윤승현",
+    bank: "국민은행",
+    accountNo: "204402-04-068327",
   },
   {
     role: "신랑 아버지",
-    name: "이정빈",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
+    name: "윤춘섭",
+    bank: "국민은행",
+    accountNo: "204402-04-006268",
   },
   {
     role: "신랑 어머니",
-    name: "이정빈",
-    bank: "토크은행",
-    accountNo: "123-456-789012",
+    name: "고순희",
+    bank: "국민은행",
+    accountNo: "204401-04-028272",
   },
 ];
 
