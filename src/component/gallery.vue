@@ -9,20 +9,22 @@
     <div
       ref="containerRef"
       class="container"
-      :style="{ '--cols': gridCols, height: contentHeight }"
+      :style="{ height: contentHeight }"
       :class="{ expanded: isExpanded }"
     >
       <div
-        class="images"
-        v-for="(cols, index) in imageList"
+        v-for="(image, index) in imageList"
         :key="index"
-        @click="showModal = true"
+        class="images"
+        @click="()=>{
+          currentIndex = index
+          showModal = true}"
       >
-        <img v-for="image in cols" :src="image" />
+        <img :src="image" />
       </div>
     </div>
     <div v-if="showMoreButton" @click="toggleExpand" class="scroll-more">
-      <div v-if="!isExpanded">
+      <div v-if="!isExpanded" style="cursor: pointer;">
         사진 더 보기
         <!-- 열기 아이콘 -->
         <svg
@@ -38,7 +40,7 @@
           />
         </svg>
       </div>
-      <div v-else>
+      <div v-else style="cursor: pointer;">
         사진 접기
         <!-- 닫기 아이콘 -->
         <svg
@@ -61,11 +63,11 @@
     <div class="image-viewer">
       <button class="nav prev" @click="prev">‹</button>
       <div class="image-wrapper">
-        <img :src="Object.values(modules)[currentIndex]" class="viewer-image" />
+        <img :src="imageList[currentIndex]" class="viewer-image" />
       </div>
       <button class="nav next" @click="next">›</button>
       <div class="pagination">
-        {{ currentIndex + 1 }} / {{ Object.values(modules).length }}
+        {{ currentIndex + 1 }} / {{ imageList.length }}
       </div>
     </div>
   </BaseModal>
@@ -86,41 +88,49 @@ const showModal = ref(false);
 const toggleExpand = async () => {
   if (!containerRef.value) return;
 
-  if (isExpanded.value) {
-    contentHeight.value = `${containerRef.value.scrollHeight}px`;
+  if (!isExpanded.value) {
+    const height = getContentHeight();
 
-    await nextTick();
+    contentHeight.value = `${height}px`;
+    isExpanded.value = true;
+  } else {
+    contentHeight.value = `${containerRef.value.offsetHeight}px`;
 
     requestAnimationFrame(() => {
       contentHeight.value = "400px";
       isExpanded.value = false;
     });
-  } else {
-    contentHeight.value = `${containerRef.value.scrollHeight}px`;
-    isExpanded.value = true;
   }
 };
 
-const imageList = computed(() => {
-  return chunkArray(Object.values(modules), gridCols.value);
-});
+const getContentHeight = () => {
+  if (!containerRef.value) return 0;
+
+  const containerWidth = containerRef.value.clientWidth;
+  const gap = 5;
+  const cols = 3;
+
+  const imageWidth =
+    (containerWidth - gap * (cols - 1)) / cols;
+
+  const rows = Math.ceil(imageList.value.length / cols);
+
+  return rows * imageWidth + (rows - 1) * gap;
+};
 
 const modules = import.meta.glob("@/image/gallery/*.jpg", {
   eager: true,
   import: "default",
 });
-const chunkArray = (arr, n) => {
-  const result = [];
-  for (let i = 0; i < arr.length; i += n) {
-    result.push(arr.slice(i, i + n)); // i부터 i+n까지 잘라서 추가
-  }
-  return result;
-};
+
+const imageList = computed(()=>{
+  let data = Object.keys(modules)
+  data = data.map(i=> i=`/wedding${i}`)
+return data.sort()
+})
 
 const checkHeight = () => {
   if (!containerRef.value) return;
-
-  console.log(containerRef.value.scrollHeight);
   showMoreButton.value = containerRef.value.scrollHeight > 700;
 };
 
@@ -130,12 +140,12 @@ const prev = () => {
   if (currentIndex.value > 0) {
     currentIndex.value--;
   } else {
-    currentIndex.value = Object.values(modules).length - 1;
+    currentIndex.value = imageList.value.length - 1;
   }
 };
 
 const next = () => {
-  if (currentIndex.value < Object.values(modules).length - 1) {
+  if (currentIndex.value < imageList.value.length - 1) {
     currentIndex.value++;
   } else {
     currentIndex.value = 0;
@@ -143,19 +153,15 @@ const next = () => {
 };
 
 onMounted(checkHeight);
-
-watch([imageList, gridCols], async () => {
-  await nextTick();
-  checkHeight();
-});
 </script>
 <style lang="scss" scoped>
 .container {
-  position: relative; // 추가
+  position: relative;
   width: 80%;
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 5px;
 
   overflow: hidden;
@@ -163,8 +169,18 @@ watch([imageList, gridCols], async () => {
   transition: height 0.4s ease;
 }
 
+.images {
+  cursor: pointer;
+}
+
+.images img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
 .gallery {
-  margin: 100px 0px;
+  margin-top: 100px;
   position: relative;
 }
 
@@ -173,9 +189,9 @@ watch([imageList, gridCols], async () => {
   margin: 20px auto 0;
 }
 
-.container.expanded {
-  max-height: 5000px; /* 충분히 큰 값 */
-}
+// .container.expanded {
+//   max-height: 5000px; /* 충분히 큰 값 */
+// }
 
 .container.expanded::after {
   display: none;
@@ -191,29 +207,17 @@ watch([imageList, gridCols], async () => {
   background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
 }
 
-.images {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.images img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  display: block;
-}
 
 .scroll-more {
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   font-size: 14px;
   color: #959595;
-  padding-block: 20px;
-  margin-top: 24px;
+
+  padding-block: 12px;
+  margin-top: 0;
 }
 
 .animate {
@@ -245,21 +249,23 @@ watch([imageList, gridCols], async () => {
   position: relative;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .viewer-image {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.viewer-image {
-  max-width: 100%;
-  max-height: 100%;
-
-  width: auto;
   height: auto;
-
+  display: block;
   object-fit: contain;
 }
 .nav {

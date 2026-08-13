@@ -61,9 +61,23 @@ const close = () => {
 }
 
 .modal-content {
-  background: white;
+ position: relative;
   /* border-radius: 12px; */
   overflow: hidden;
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(241, 239, 239);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.modal-content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .normal {
@@ -80,13 +94,14 @@ const close = () => {
   flex-direction: column;
 }
 
+
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 16px 20px;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
 }
 
 .modal-body {
@@ -97,7 +112,7 @@ const close = () => {
 
 .modal-footer {
   padding: 16px 20px;
-  border-top: 1px solid #eee;
+  /* border-top: 1px solid #eee; */
 }
 
 .close-btn {

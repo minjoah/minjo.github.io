@@ -13,7 +13,7 @@
           <div  class="top-text">
             we are getting<br/> Married!
           </div>
-          <img src="@/image/gallery/4.jpg" class="image" />
+          <img src="@/image/mainimage.jpg" class="image" />
           <div class="bottom-gradient"></div>
           <div  class="bottom-text">
            October 31 &nbsp;&nbsp; | &nbsp;&nbsp;  SATURDAY &nbsp;&nbsp;  | &nbsp;&nbsp;  2026<br/>
