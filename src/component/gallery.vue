@@ -124,8 +124,8 @@ const modules = import.meta.glob("@/image/gallery/*.jpg", {
 });
 
 const imageList = computed(()=>{
-  let data = Object.keys(modules)
-  data = data.map(i=> i=`/wedding${i}`)
+  let data = Object.values(modules)
+  // data = data.map(i=> i=`/wedding${i}`)
 return data.sort()
 })
 
