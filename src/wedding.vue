@@ -48,7 +48,7 @@
     </div>
     <div class="contents backColor_1"><invite /></div>
     <div class="contents">
-      <img src="@/image/image2.png" class="image" />
+      <img src="@/image/18.jpg" class="image" />
     </div>
     <div class="contents">
       <impactDDay />
@@ -71,7 +71,7 @@
       <money />
     </div>
     <div class="contents">
-      <img src="@/image/image3.png" class="image" />
+      <img src="@/image/19.jpg" class="image" />
     </div>
     <div class="contents margin backColor_default">
       <share />
