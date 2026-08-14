@@ -281,7 +281,7 @@ onMounted(() => {
 }
 
 .footer{
-  padding-top:100px;
+  padding-top:200px;
   padding-bottom: 30px;
   font-size:8px;
 }
