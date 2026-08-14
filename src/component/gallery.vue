@@ -73,27 +73,32 @@
 
       <!-- 이미지 영역 -->
       <div class="image-wrapper">
-        <Swiper
-          class="gallery-swiper"
+    <Swiper
+      class="gallery-swiper"
+        :modules="[Zoom]"
           :slides-per-view="1"
-          :space-between="0"
-          :loop="true"
-          :allow-touch-move="true"
-          :speed="300"
-          @swiper="onSwiper"
-          @slide-change="onSlideChange"
-        >
+            :space-between="0"
+              :loop="true"
+                :allow-touch-move="true"
+                  :zoom="true"
+                    :speed="300"
+                      @swiper="onSwiper"
+                        @slide-change="onSlideChange"
+                        >
+    
           <SwiperSlide
             v-for="(image, index) in imageList"
-            :key="index"
-            class="gallery-slide"
-          >
-            <img
-              :src="image"
-              class="viewer-image"
-              draggable="false"
-            />
-          </SwiperSlide>
+              :key="index"
+                class="gallery-slide"
+                >
+                  <div class="swiper-zoom-container">
+                      <img
+                            :src="image"
+                                  class="viewer-image"
+                                        draggable="false"
+                                            />
+                                              </div>
+                                              </SwiperSlide>
         </Swiper>
       </div>
 
@@ -141,12 +146,11 @@ import {
 import Title from "@/component/Title.vue";
 import BaseModal from "@/component/BaseModal.vue";
 
-import {
-  Swiper,
-  SwiperSlide,
-} from "swiper/vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Zoom } from "swiper/modules";
 
 import "swiper/css";
+import "swiper/css/zoom";
 
 /* ==================================================
    Gallery Image
