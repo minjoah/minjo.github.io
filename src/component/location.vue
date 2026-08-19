@@ -60,7 +60,7 @@ onMounted(() => {
       position: weddingLocation,
       map: map.value,
       icon: {
-        url: `/wedding/marker.png`,
+        url: `/wedding/wedding-couple.png`,
         size: new naver.maps.Size(50, 52),
         scaledSize: new naver.maps.Size(35, 35),
         origin: new naver.maps.Point(-8, 0),

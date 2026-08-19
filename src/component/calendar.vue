@@ -33,7 +33,7 @@
           >
             {{ day.val }}
           </span>
-          <div v-if="day.isActive" class="heart">❤</div>
+          <div v-if="day.isActive" class="heart">♥</div>
         </td>
       </tr>
     </table>
@@ -120,12 +120,12 @@ onMounted(() => {
 
 .heart {
   position: absolute;
-  top: 50%;
+  top: 50.5%;
   left: 50%;
 
   transform: translate(-50%, -50%);
 
-  font-size: 38px;
+  font-size: 40px;
 
   color: #050505;
   // opacity: 0.25;
