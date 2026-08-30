@@ -107,7 +107,7 @@ const accounts = [
   },
   {
     role: "신랑 어머니",
-    name: "고순희",
+    name: "고수희",
     bank: "국민은행",
     accountNo: "204401-04-028272",
   },
